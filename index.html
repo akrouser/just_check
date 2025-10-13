@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: aqua;
+        }
+        #div {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: calc(1vw*50);
+            aspect-ratio: 2/1;
+            background-color: pink;
+            border-radius: calc(1vw*2);
+            border: solid 2px black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="div"></div>
+    <script>
+        const div = document.getElementById("div");
+        if (/Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            console.log("You are using a mobile device 📱");
+            div.innerHTML += "Devise: Phone";
+        } else {
+            console.log("You are using a PC 💻");
+            div.innerHTML += "Devise: PC";
+        }
+        div.innerHTML += `<br>Size: ${window.innerWidth} x ${window.innerHeight}`;
+    </script>
+</body>
+</html>
