@@ -6,37 +6,36 @@
     <title>Document</title>
     <style>
         body {
-            background-color: aqua;
-        }
-        #div {
-            position: fixed;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: calc(1vw*50);
-            aspect-ratio: 2/1;
-            background-color: pink;
-            border-radius: calc(1vw*2);
-            border: solid 2px black;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
+            background-color: aqua;
+        }
+        p {
+            font-size: 50px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <div id="div"></div>
+    <p id="p">dasd</p>
     <script>
-        const div = document.getElementById("div");
-        if (/Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-            console.log("You are using a mobile device 📱");
-            div.innerHTML += "Devise: Phone";
-        } else {
-            console.log("You are using a PC 💻");
-            div.innerHTML += "Devise: PC";
-        }
-        div.innerHTML += `<br>Size: ${window.innerWidth} x ${window.innerHeight}`;
+        // elementni tanlaymiz
+        const p = document.getElementById("p");
+
+        // width va height olamiz
+        const width = window.innerWidth;   // brauzer oynasi kengligi
+        const height = window.innerHeight; // brauzer oynasi balandligi
+
+        // matn sifatida chiqaramiz
+        p.innerText = `Screen o‘lchami: \nwidth = ${width}px, \nheight = ${height}px`;
+
+        // optional: ekran o‘lchami o‘zgarganda yangilash
+        window.addEventListener("resize", () => {
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+            p.innerText = `Screen o‘lchami: \nwidth = ${w}px, \nheight = ${h}px`;
+        });        
     </script>
 </body>
 </html>
